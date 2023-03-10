@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "74265910866",
+    "project_id": "flutter-notis",
+    "storage_bucket": "flutter-notis.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:74265910866:android:2d2e4b8226ae4378a7498b",
+        "android_client_info": {
+          "package_name": "com.joseinnovaapps.notifications_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "74265910866-60h7ceaqq256d78f6pepmco91qgbm64l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.joseinnovaapps.notifications_app",
+            "certificate_hash": "a6a0ec3acf7d6cfab9964b57f1040b3cf1a58177"
+          }
+        },
+        {
+          "client_id": "74265910866-dks05sl33facdnktt81qis36qqfsup8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-By2U4Jz-5GxVqkquHKk3sB_94zqMtO0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "74265910866-dks05sl33facdnktt81qis36qqfsup8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
