@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:notifications_app/screens/screens.dart';
 import 'package:notifications_app/services/push_notifications.dart';
+import 'package:notifications_app/widgets/message_notification.dart';
+import 'package:overlay_support/overlay_support.dart';
 
 
 void main() async{
@@ -26,22 +28,27 @@ class _MyAppState extends State<MyApp> {
     super.initState();
     PushNotification.messagesStream.listen((message) {
       print('MyApp: $message');
-      navigatorKey.currentState?.pushNamed('message', arguments:message);
-      final snackbar=SnackBar(content: Text('$message'),);
-      messengerKey.currentState?.showSnackBar(snackbar);
+      // navigatorKey.currentState?.pushNamed('message', arguments:message);
+      // final snackbar=SnackBar(content: Text('$message'),);
+      // messengerKey.currentState?.showSnackBar(snackbar);
+      // showSimpleNotification(Text('Notificacion con el producto $message'));
+      showOverlayNotification((context) => MessageNotification(onReplay: () {  },),);
      });
   }
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Material App',
-      initialRoute: 'home',
-      navigatorKey:navigatorKey ,
-      scaffoldMessengerKey: messengerKey,
-      routes: {
-        'home':(_) => HomeScreen(),
-        'message':(context) => MessageScreen()
-      },
+    return OverlaySupport.global(
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Material App',
+        initialRoute: 'home',
+        navigatorKey:navigatorKey ,
+        scaffoldMessengerKey: messengerKey,
+        routes: {
+          'home':(_) => HomeScreen(),
+          'message':(context) => MessageScreen()
+        },
+      ),
     );
   }
 }
