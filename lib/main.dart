@@ -31,8 +31,8 @@ class _MyAppState extends State<MyApp> {
       // navigatorKey.currentState?.pushNamed('message', arguments:message);
       // final snackbar=SnackBar(content: Text('$message'),);
       // messengerKey.currentState?.showSnackBar(snackbar);
-      // showSimpleNotification(Text('Notificacion con el producto $message'));
-      showOverlayNotification((context) => MessageNotification(onReplay: () {  },),);
+      // showSimpleNotification(Text('Notificacion con el producto $mesxsage'));
+      showOverlayNotification((context) => MessageNotification(onReplay: () {  }, action:message), duration: Duration(seconds: 5));
      });
   }
   @override

@@ -1,30 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:overlay_support/overlay_support.dart';
 
 class MessageNotification extends StatelessWidget {
   final VoidCallback onReplay;
-
-  const MessageNotification({Key? key, required this.onReplay}) : super(key: key);
+  final String action;
+  const MessageNotification({Key? key, required this.onReplay, required  this.action}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      shape: RoundedRectangleBorder(
-    borderRadius: BorderRadius.circular(80),),
-      margin: const EdgeInsets.symmetric(horizontal: 4),
-      child: SafeArea(
-        child: ListTile(
-          leading: SizedBox.fromSize(
-              size: const Size(40, 40),
-              child: ClipOval(child: Image.asset('assets/Apple_logo_black.svg.png'))),
-          title: Text('Lily MacDonald'),
-          subtitle: Text('Do you want to see a movie?'),
-          trailing: IconButton(
-              icon: Icon(Icons.reply),
-              onPressed: () {
-                ///TODO i'm not sure it should be use this widget' BuildContext to create a Dialog
-                ///maybe i will give the answer in the future
-                if (onReplay != null) onReplay();
-              }),
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, action);
+        OverlaySupportEntry.of(context)?.dismiss();
+      },
+      child: Card(
+        margin: const EdgeInsets.symmetric(horizontal: 4),
+        child: SafeArea(
+          child: ListTile(
+            leading: SizedBox.fromSize(
+                size: const Size(40, 40),
+                child: ClipOval(
+                    child: Container(
+                  color: Colors.black,
+                ))),
+            title: Text('FilledStacks'),
+            subtitle: Text('Thanks for checking out my tutorial'),
+            trailing: IconButton(
+                icon: Icon(Icons.close),
+                onPressed: () {
+                  OverlaySupportEntry.of(context)?.dismiss();
+                }),
+          ),
         ),
       ),
     );
